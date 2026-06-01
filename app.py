@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.utils.app_routers import setup_routers
+from BE.src.utils.app_routers import setup_routers
 
 app = FastAPI(
     title="Bus Tracking API",
