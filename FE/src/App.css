@@ -1,38 +1,499 @@
-.App {
-  text-align: center;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ---- Layout ---- */
+.layout {
   display: flex;
-  flex-direction: column;
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo-circle {
+  width: 36px;
+  height: 36px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.logo-text p {
+  font-size: 13px;
+  font-weight: bold;
+  color: #111;
+}
+
+.logo-text span {
+  font-size: 11px;
+  color: #999;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #f0f2f5;
+  color: #111;
+}
+
+.sidebar-menu li.active a {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+/* ---- Main ---- */
+.main {
+  flex: 1;
+  margin-left: 200px;
+}
+
+/* ---- Topbar ---- */
+.topbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar h2 {
+  font-size: 16px;
+  color: #111;
+}
+
+.topbar button {
+  padding: 7px 14px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.topbar button:hover {
+  background-color: #f0f2f5;
+}
+
+/* ---- Content ---- */
+.content {
+  padding: 28px;
+}
+
+/* ---- Card ---- */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-header h3 {
+  font-size: 15px;
+  color: #111;
+}
+
+/* ---- Buttons ---- */
+.btn-add {
+  padding: 8px 18px;
+  background-color: #2563eb;
   color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-add:hover {
+  background-color: #1d4ed8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-edit {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.btn-edit:hover {
+  background-color: #eff6ff;
+}
+
+.btn-cancel {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background-color: #f0f2f5;
+}
+
+.btn-save {
+  padding: 8px 18px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #1d4ed8;
+}
+
+/* ---- Table ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead tr {
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  text-align: left;
+  padding: 10px 22px;
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table td {
+  padding: 14px 22px;
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.driver-name,
+.bus-number {
+  font-weight: 600;
+  color: #111;
+}
+
+.driver-phone,
+.route-name {
+  color: #2563eb;
+}
+
+.bus-badge {
+  background-color: #eff6ff;
+  color: #2563eb;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-active {
+  background-color: #dcfce7;
+  color: #16a34a;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.badge-inactive {
+  background-color: #f1f5f9;
+  color: #94a3b8;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ---- Dashboard Stats ---- */
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+}
+
+.stat-icon {
+  font-size: 28px;
+}
+
+/* ---- Map ---- */
+.map-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+.map-card h3 {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 14px;
+}
+
+.map-area {
+  background-color: #e8f4f8;
+  border-radius: 6px;
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map-dot.bus {
+  background-color: #ef4444;
+  border: 2px solid white;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.3);
+}
+
+.map-dot.stop {
+  background-color: #2563eb;
+  width: 8px;
+  height: 8px;
+}
+
+.map-label {
+  position: absolute;
+  font-size: 10px;
+  color: #333;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.map-bus-label {
+  position: absolute;
+  font-size: 11px;
+  font-weight: bold;
+  color: #111;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.map-legend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 11px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.legend-item:last-child {
+  margin-bottom: 0;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* ---- Routes ---- */
+.route-item {
+  padding: 18px 22px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.route-item:last-child {
+  border-bottom: none;
+}
+
+.route-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.route-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.route-stops {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stop-tag {
+  background-color: #f1f5f9;
+  color: #444;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.stop-tag.highlight {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+/* ---- Modal ---- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-box {
+  background-color: white;
+  border-radius: 10px;
+  padding: 28px;
+  width: 380px;
+}
+
+.modal-box h3 {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
 }
